@@ -13,17 +13,19 @@ output() {
 	fi
 
 	# If error
-	error=false
+	full_prefix="$prefix"
 	if [ -n "$2" ]; then
-		if [ "$2" = "error" ]; then
-			error=true
-		fi
-	fi
-
-	if [ "$error" = true ] ; then
-	    full_prefix="$prefix [\e[31merror\e[0m]"
-	else
-	    full_prefix="$prefix"
+		case "$2" in
+			"error")
+			    full_prefix="$prefix [\e[31merror\e[0m]"
+			    ;;
+			"noprefix")
+			    full_prefix="  "
+			    ;;
+			*)
+			    full_prefix="$prefix"
+			    ;;
+		esac
 	fi
 
 	echo -e "\e[0m$full_prefix $1"

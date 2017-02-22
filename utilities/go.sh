@@ -7,7 +7,7 @@ go() {
 	# Declare locations
 	declare -A locations
 	locations["home"]=~
-	locations["web"]=~/Sync/web
+	locations["web"]=~/web
 	locations["scripts"]=~/Sync/scripts
 
 	# No argument given

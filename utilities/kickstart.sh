@@ -1,4 +1,4 @@
-# project
+# kickstart
 # 
 # Open trellis projects quickly
 

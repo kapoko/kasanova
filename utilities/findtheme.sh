@@ -35,7 +35,7 @@ findtheme() {
 		output "Found theme, cd'ing into \e[1m${themes[0]%/}\e[0m"
 		return 0;
 	else 
-		output "There seem to be more than one theme" error
+		output "There seem to be more (or less) than one theme" error
 		cd $original_pwd
 		return 1;
 	fi
