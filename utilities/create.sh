@@ -23,16 +23,13 @@ create() {
 		"trellis")
 			output "Creating trellis project"
 
-			git clone --depth=1 git@github.com:kasperientje/trellis.git && rm -rf trellis/.git
+			git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git
 			git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git
 			cd trellis && ansible-galaxy install -r requirements.yml
 
 			output "Success"
 			;;
 	esac
-
-
-
 
 }
 
