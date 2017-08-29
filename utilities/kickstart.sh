@@ -28,27 +28,38 @@ kickstart() {
 	# trellis
 	trellis_dir="$(find $(pwd) -maxdepth 1 -type d -name 'trellis' -print)"
 	if [ -n "$trellis_dir" ]; then
-		output "Starting trellis"
 		osascript <<EOD
-			tell application "Terminal"
-			    do script "cd $trellis_dir && vagrant up"
+			tell application "iTerm2"
+			    activate
+			    select first window
+
+			    # Split pane
+			    tell current session of current window
+			        split horizontally with default profile
+			        split horizontally with default profile
+			    end tell
+
+			    # Exec commands
+			    tell first session of current tab of current window
+			        set rows to 10
+			    end tell
+			    tell second session of current tab of current window
+			        set rows to 12
+			    	write text "output \"Starting Trellis...\" && cd $trellis_dir && vagrant up"
+			    end tell
+			    tell third session of current tab of current window
+			        set rows to 26
+			    	write text "output \"Building...\" && go web && cd $project_dir && findtheme && gulp && gulp watch"
+			    end tell
 			end tell
 EOD
 	fi
-
-	# theme
-	output "Starting theme"
-	osascript <<EOD
-		tell application "Terminal"
-		    do script "go web && cd $project_dir && findtheme && gulp && gulp watch"
-		end tell
-EOD
 	
 	# sublime
 	sublime_project="$(find . -maxdepth 1 -name '*.sublime-project' -print)"
 	if [ -n "$sublime_project" ]; then
 		output "Opening project in sublime"
-		sublime $sublime_project
+		# sublime $sublime_project
 	fi
 
     output "Starting ${projectdir##*/}"
