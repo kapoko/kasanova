@@ -59,7 +59,7 @@ EOD
 	sublime_project="$(find . -maxdepth 1 -name '*.sublime-project' -print)"
 	if [ -n "$sublime_project" ]; then
 		output "Opening project in sublime"
-		# sublime $sublime_project
+		sublime $sublime_project
 	fi
 
     output "Starting ${projectdir##*/}"
