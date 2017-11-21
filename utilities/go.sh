@@ -8,6 +8,7 @@ go() {
 	declare -A locations
 	locations["home"]=~
 	locations["web"]=~/web
+	locations["vagrant"]=~/Vagrant
 	locations["scripts"]=~/Sync/scripts
 
 	# No argument given
