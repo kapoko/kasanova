@@ -6,7 +6,7 @@ Personal system utilities for macOS written in bash which make my terminal<sup>[
 
 ## Requirements
 
-Bash 4 or higher.
+Bash 4.2 or higher.
 
 ## Usage 
 
