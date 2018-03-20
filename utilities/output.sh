@@ -19,6 +19,9 @@ output() {
 			"error")
 			    full_prefix="$prefix [\e[31merror\e[0m]"
 			    ;;
+			"info")
+			    full_prefix="$prefix [\e[36minfo\e[0m]"
+			    ;;
 			"noprefix")
 			    full_prefix="  "
 			    ;;
