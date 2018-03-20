@@ -29,14 +29,41 @@ findtheme() {
 	themes=(*/)
 	shopt -u nullglob 
 
-	# If there's only one theme, cd into it
 	if [ ${#themes[@]} -eq 1 ]; then
+		# If there's only one theme, cd into it
 		cd "${themes[0]}"
 		output "Found theme, cd'ing into \e[1m${themes[0]%/}\e[0m"
 		return 0;
-	else 
-		output "There seem to be more (or less) than one theme" error
+	elif [ ${#themes[@]} -eq 0]; then
+		output "No themes found" error
 		cd $original_pwd
 		return 1;
+	else 
+		# There's more than one theme
+		output "More than one theme found" info
+
+		# Sort themes alphabetically
+		IFS=$'\n' sorted=($(sort <<<"${themes[*]}"))
+		unset IFS
+
+		for i in "${!themes[@]}"; do 
+			printf "[%s] \e[1m%s\e[0m\n" "$i" "${themes[$i]::-1}"
+		done
+
+		maxTheme=$((${#themes[@]}-1))
+		printf "Select theme [0-%s]: " $maxTheme
+		read -r themeIndex
+
+		# Check if number input is between 0 and the number of themes
+		if ! [ "$themeIndex" -ge 0 -a "$themeIndex" -le $maxTheme ]; then 
+			output "Select correct number" error
+			cd $original_pwd
+			return 1;
+		fi
+
+		cd "${themes[$themeIndex]}"
+		output "Cd'ing into \e[1m${themes[$themeIndex]%/}\e[0m"
+
+		return 0;
 	fi
 }
