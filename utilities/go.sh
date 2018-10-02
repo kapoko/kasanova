@@ -10,6 +10,7 @@ go() {
 	locations["web"]=~/web
 	locations["vagrant"]=~/Vagrant
 	locations["scripts"]=~/Sync/scripts
+	locations["c++"]=~/Documents/Programming/c++
 
 	# No argument given
 	if [ -z "$1" ]; then

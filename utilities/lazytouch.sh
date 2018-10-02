@@ -1,6 +1,6 @@
 # lazytouch
 # 
-# Creates a file and opens it in sublime
+# Creates a file and opens it in code
 
 lazytouch()
 {
@@ -11,7 +11,7 @@ lazytouch()
 	fi
 
 	touch $1
-	sublime $1
+	code $1
 
 	output "File $1 created"
 }
