@@ -7,16 +7,8 @@ findtheme() {
 	# Save current working directory
 	original_pwd=$PWD
 
-	# Find app path
-	app_path="$(find $(pwd) -maxdepth 3 -type d -name 'app' -print)"
-	if [ -z "$app_path" ]; then
-		output "App folder not found" error
-		return 1
-	fi
-
 	# Find themes folder
-	cd $app_path
-	themes_path="$(find $(pwd) -maxdepth 1 -type d -name 'themes' -print)"
+	themes_path="$(find $(pwd) -maxdepth 3 -type d -name 'themes' -print)"
 	if [ -z "$themes_path" ]; then
 		output "Themes folder not found" error
 		cd $original_pwd
