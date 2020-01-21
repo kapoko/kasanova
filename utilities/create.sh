@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # create
 # 
 # Quick creation of new projects

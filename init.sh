@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 # Cleaner terminal prefix, nomnom
 export PS1="\W \u \$ "

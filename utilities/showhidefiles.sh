@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # showfiles
 #
 # Show hidden files on macOS

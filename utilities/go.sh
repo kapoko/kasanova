@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # go
 # 
 # Shortcuts to different locations on the system.

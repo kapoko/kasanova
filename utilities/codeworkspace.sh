@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # codeworkspace
 #
 # Search folder for a .code-workspace file and open it

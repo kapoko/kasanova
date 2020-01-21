@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # lazytouch
 # 
 # Creates a file and opens it in code

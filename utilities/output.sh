@@ -1,3 +1,4 @@
+#!/bin/bash
 # output
 # 
 # Nice output

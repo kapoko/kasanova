@@ -1,6 +1,8 @@
+#!/bin/bash
+
 # findtheme
 # 
-# Find wordpress theme in trellis directory
+# Find wordpress theme in wordpress type folder
 
 findtheme() {
 
@@ -8,7 +10,7 @@ findtheme() {
 	original_pwd=$PWD
 
 	# Find themes folder
-	themes_path="$(find $(pwd) -maxdepth 3 -type d -name 'themes' -print)"
+	themes_path="$(find $(pwd) -maxdepth 4 -type d -name 'themes' -print)"
 	if [ -z "$themes_path" ]; then
 		output "Themes folder not found" error
 		cd $original_pwd
@@ -26,7 +28,7 @@ findtheme() {
 		cd "${themes[0]}"
 		output "Found theme, cd'ing into \e[1m${themes[0]%/}\e[0m"
 		return 0;
-	elif [ ${#themes[@]} -eq 0]; then
+	elif [ ${#themes[@]} -eq 0 ]; then
 		output "No themes found" error
 		cd $original_pwd
 		return 1;
